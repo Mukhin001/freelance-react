@@ -1,7 +1,5 @@
 import './style.css';
 
-import project01 from './../../img/projects/01.jpg';
-
 const Project = ({title, img}) => {
     return ( 
         <>
