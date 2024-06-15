@@ -22,6 +22,16 @@ const BtnDarkMode = () => {
         }
     }, [darkMode]);
 
+    // тема меняется при изменении системных настроек
+    useEffect(() => {
+        window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (event) => {
+            const newColorScheme = event.matches ? 'dark' : 'light';
+            setDarkMode(newColorScheme);
+        });
+    }, [setDarkMode]);
+
     const toggleDarkMoon = () => {
         setDarkMode((currentValue) => {
             return currentValue === 'light' ? 'dark' : 'light';
